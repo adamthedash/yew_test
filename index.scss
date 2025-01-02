@@ -1,15 +1,10 @@
-html,
-body {
+html {
   height: 100%;
   margin: 0;
 }
 
 body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-
-  background: linear-gradient(to bottom right, #444444, #009a5b);
+  background: light-grey;
   font-size: 1.5rem;
 }
 
@@ -19,17 +14,9 @@ main {
   text-align: center;
 }
 
-.logo {
-  height: 20em;
-}
 
-.heart:after {
-  content: "❤️";
-
-  font-size: 1.75em;
-}
-
-h1 + .subtitle {
-  display: block;
-  margin-top: -1em;
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 25vh;
 }

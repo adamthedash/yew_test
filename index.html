@@ -4,6 +4,60 @@
     <meta charset="utf-8" />
     <title>Trunk Template</title>
     <link data-trunk rel="sass" href="index.scss" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
   </head>
-  <body></body>
+  <body>
+    <script>
+      function create_chart(parent_element_id, labels, data, title, y_label) {
+          const ctx = document.getElementById(parent_element_id).getContext('2d');
+          new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                      label: 'Temperature over Time',
+                      data: data,
+                      borderColor: 'rgba(75, 192, 192, 1)',
+                      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                      tension: 0.4,
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                      legend: {
+                        display: false,
+                      },
+                      tooltip: {
+                          mode: 'index',
+                          intersect: false,
+                      },
+                      title: {
+                        display: true,
+                        text: title
+                      }
+                  },
+                  scales: {
+                      x: {
+                          type: 'time',
+                          time: {
+                              unit: 'hour'
+                          }
+                      },
+                      y: {
+                          beginAtZero: false,
+                          title: {
+                            display: true,
+                            text: y_label
+                          }
+                      }
+                  }
+              }
+          });
+      }
+    </script>
+  </body>
 </html>

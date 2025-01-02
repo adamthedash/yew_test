@@ -1,3 +1,24 @@
+# Met Eireann Dashboard
+Shows some forecast charts for your current location using the Met Eireann API.  
+![](images/screenshot.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Yew Trunk Template
 
 This is a fairly minimal template for a Yew app that's built with [Trunk].

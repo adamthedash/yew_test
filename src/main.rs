@@ -1,4 +1,7 @@
 mod app;
+mod helpers;
+mod plot;
+mod xml;
 
 use app::App;
 
