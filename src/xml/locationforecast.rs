@@ -1,6 +1,5 @@
+use crate::components::linechart::LineChartData;
 use std::collections::HashMap;
-
-use crate::plot::line::LineChartData;
 
 use super::generic::XMLItem;
 
@@ -82,7 +81,7 @@ pub fn flatten_response(root: &XMLItem) -> Vec<FlatItem> {
 }
 
 /// Parses out data into separate measurements for plotting
-pub fn prepare_plot_data(items: &[FlatItem]) -> HashMap<String, LineChartData> {
+pub fn prepare_plot_data(items: &[FlatItem]) -> Vec<LineChartData> {
     // Sort by date
     let mut items = items.iter().collect::<Vec<_>>();
     items.sort_by_key(|item| item.from);
@@ -131,6 +130,7 @@ pub fn prepare_plot_data(items: &[FlatItem]) -> HashMap<String, LineChartData> {
                 };
 
                 LineChartData {
+                    key: item.name.clone(),
                     title: Some(item.name.clone()),
                     y_axis_title: Some(y_axis_title.to_string()),
                     ..Default::default()
@@ -138,5 +138,5 @@ pub fn prepare_plot_data(items: &[FlatItem]) -> HashMap<String, LineChartData> {
             });
     });
 
-    measurement_groups
+    measurement_groups.into_values().collect()
 }

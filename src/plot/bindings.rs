@@ -1,6 +1,5 @@
+use crate::components::linechart::LineChartData;
 use wasm_bindgen::prelude::*;
-
-use super::line::LineChartData;
 
 // Bind to the JavaScript function for creating the chart
 #[wasm_bindgen]
