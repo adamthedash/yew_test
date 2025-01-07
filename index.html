@@ -7,10 +7,16 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&libraries=maps,marker&v=beta">
+</script>
   </head>
   <body>
     <script>
       function create_chart(parent_element_id, labels, data, title, y_label) {
+          // Destroy the chart if it exists already
+          Chart.getChart(parent_element_id)?.destroy();
+
           const ctx = document.getElementById(parent_element_id).getContext('2d');
           new Chart(ctx, {
               type: 'line',
